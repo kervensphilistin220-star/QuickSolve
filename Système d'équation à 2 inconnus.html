@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<title></title>
+	
+</head>
+<body>
+
+
+<div class="container-fluid">
+<div class="row">
+	<div class="col-12">
+	<H2>QuickSolve</H2><div id="theme-toggle">
+    <button onclick="toggleTheme()">🌓 Thème</button>
+</div>
+	</div>
+</div>
+
+
+
+
+<div class="row" id="ko">
+
+
+	<div class="col-12 col-xl-6">
+  <nav class="bwat">
+    <ul class="list-unstyled">
+      <li><a href="index.html" class="menu-btn">Accueil</a></li>
+      <li><a href="tirage.html" class="menu-btn">Tirage</a></li>
+      <li><a href="Calculs simples.html" class="menu-btn">Calculs simples</a></li>
+      <li><a href="Équation du second degré.html" class="menu-btn">Équation du second degré</a></li>
+      <li><a href="Système d'équation à 2 inconnus.html" class="menu-btn">Système d'équation à 2 inconnus</a></li>
+    </ul>
+  </nav>
+</div>
+
+		<div class="col-12 col-xl-6" id="ASMD">
+		<input type="number" name="a" placeholder="Entrer la valeur de a" id="valeura" class="color"><br>
+		<input type="number" name="b" placeholder="Entrer la valeur de b" id="valeurb" class="color"><br>
+		<input type="number" name="c" placeholder="Entrer la valeur de c" id="valeurc" class="color"><br>
+		<input type="number" name="aa" placeholder="Entrer la valeur de a'" id="valeura'" class="color"><br>
+		<input type="number" name="bb" placeholder="Entrer la valeur de b'" id="valeurb'" class="color"><br>
+		<input type="number" name="cc" placeholder="Entrer la valeur de c'" id="valeurc'" class="color"><br>
+
+		<section id="fonction" class="text-center">
+			<button id="jouer" onclick="calculer()">calculer</button>
+			<button id="jouer" onclick="reset()">Réinitialiser</button>
+		</section>
+ 
+		<strong><p id="affichage"></p></strong>
+	</div>
+
+</div>
+
+
+
+
+<div class="row">
+	<div class="col-12" id="pye">
+		 <strong>&copy 2025 Tous droits réservés<br>Développé par Philistin Kervens</strong>
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+		function calculer() {
+			let a = Number(document.getElementById("valeura").value);
+			let b = Number(document.getElementById("valeurb").value);
+			let c = Number(document.getElementById("valeurc").value);
+			let a2 = Number(document.getElementById("valeura'").value);
+			let b2 = Number(document.getElementById("valeurb'").value);
+			let c2 = Number(document.getElementById("valeurc'").value);
+
+			let delta = a * b2 - a2 * b;
+			
+			let resultat = `<b>Système :</b><br>
+			${a}x + ${b}y = ${c}<br>
+			${a2}x + ${b2}y = ${c2}<br><br>`;
+
+			resultat += "<b>1) Calcul du déterminant Δ :</b><br>";
+			resultat += `Δ = a × b' - a' × b = ${a}×${b2} - ${a2}×${b} = ${delta}<br><br>`;
+
+			if (delta === 0) {
+				resultat += "<b>→ Pas de solution unique</b> (Δ = 0). Le système est soit impossible, soit indéterminé.";
+			} else {
+				let deltax = c * b2 - c2 * b;
+				let deltay = a * c2 - a2 * c;
+
+				let x = (deltax / delta).toFixed(2);
+				let y = (deltay / delta).toFixed(2);
+
+				resultat += "<b>2) Calcul de Δx et Δy :</b><br>";
+				resultat += `Δx = c × b' - c' × b = ${c}×${b2} - ${c2}×${b} = ${deltax}<br>`;
+				resultat += `Δy = a × c' - a' × c = ${a}×${c2} - ${a2}×${c} = ${deltay}<br><br>`;
+
+				resultat += "<b>3) Solutions :</b><br>";
+				resultat += `x = Δx / Δ = ${deltax} / ${delta} = <b>${x}</b><br>`;
+				resultat += `y = Δy / Δ = ${deltay} / ${delta} = <b>${y}</b><br><br>`;
+				resultat += `<b>⇒ S = { x = ${x} ; y = ${y} }</b>`;
+			}
+
+			document.getElementById("affichage").innerHTML = resultat;
+		}
+
+		function reset() {
+			document.getElementById("valeura").value = "";
+			document.getElementById("valeurb").value = "";
+			document.getElementById("valeurc").value = "";
+			document.getElementById("valeura'").value = "";
+			document.getElementById("valeurb'").value = "";
+			document.getElementById("valeurc'").value = "";
+			document.getElementById("affichage").innerHTML = "";
+		}
+
+
+
+
+	function toggleTheme() {
+		document.body.classList.toggle("light");
+
+		// Optionnel : Sauvegarder le thème dans le localStorage
+		if (document.body.classList.contains("light")) {
+			localStorage.setItem("theme", "light");
+		} else {
+			localStorage.setItem("theme", "dark");
+		}
+	}
+
+	// Charger le thème sauvegardé (au rechargement de la page)
+	window.onload = function () {
+		if (localStorage.getItem("theme") === "light") {
+			document.body.classList.add("light");
+		}
+	};
+	</script>
+
+
+
+</body>
+</html>
