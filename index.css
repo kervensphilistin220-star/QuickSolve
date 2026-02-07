@@ -4,10 +4,9 @@ body {
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: #f1f1f1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
 h1, h2, h3 {
@@ -149,13 +148,9 @@ button#jouer:hover {
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    margin-top: 40px;
     font-size: 0.95rem;
     border-top: 1px solid #00ffe0;
-
-    /* Les lignes magiques pour le coller en bas */
-    position: relative;
-    width: 100%;
-    margin-top: auto; /* Cela va utiliser tout l'espace vide pour pousser le footer */
 }
 
 
@@ -319,4 +314,5 @@ body.light .output {
     text-shadow: none;
 
 }
+
 
