@@ -7,10 +7,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    display: flex; /* Active le mode flexible */
-    flex-direction: column; /* Aligne les éléments verticalement */
 }
-
 
 h1, h2, h3 {
     text-align: center;
@@ -147,20 +144,14 @@ button#jouer:hover {
 /* ---- FOOTER ---- */
 
 #pye {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    margin-top: 500px;
     font-size: 0.95rem;
     border-top: 1px solid #00ffe0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    margin-top: 50vh; /* Force une marge énorme pour pousser vers le bas */
-    margin-top: clamp(40px, 20vh, 500px); /* Version intelligente qui s'adapte */
 }
-
-
 
 
 /* ---- ANIMATIONS ---- */
@@ -323,7 +314,3 @@ body.light .output {
     text-shadow: none;
 
 }
-
-
-
-
