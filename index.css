@@ -147,14 +147,19 @@ button#jouer:hover {
 /* ---- FOOTER ---- */
 
 #pye {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    margin-top: auto; /* C'est ça qui pousse le pied de page tout en bas ! */
     font-size: 0.95rem;
     border-top: 1px solid #00ffe0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 50vh; /* Force une marge énorme pour pousser vers le bas */
+    margin-top: clamp(40px, 20vh, 500px); /* Version intelligente qui s'adapte */
 }
+
 
 
 
@@ -318,6 +323,7 @@ body.light .output {
     text-shadow: none;
 
 }
+
 
 
 
