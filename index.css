@@ -7,7 +7,10 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    display: flex; /* Active le mode flexible */
+    flex-direction: column; /* Aligne les éléments verticalement */
 }
+
 
 h1, h2, h3 {
     text-align: center;
@@ -148,10 +151,11 @@ button#jouer:hover {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    margin-top: 40px;
+    margin-top: auto; /* C'est ça qui pousse le pied de page tout en bas ! */
     font-size: 0.95rem;
     border-top: 1px solid #00ffe0;
 }
+
 
 
 /* ---- ANIMATIONS ---- */
@@ -314,5 +318,6 @@ body.light .output {
     text-shadow: none;
 
 }
+
 
 
